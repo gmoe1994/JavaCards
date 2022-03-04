@@ -7,9 +7,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+        Game theGame = new Game(War.getInstance());
+        theGame.addPlayer("player1");
+        theGame.addPlayer("player2");
+        theGame.start();
+
         Deck deck = new Deck();
-        deck.shuffleDeck();
-        Game game = new Game(War.getInstance());
         Player player1 = new Player("player1");
         Player player2 = new Player("player2");
 
@@ -20,14 +23,26 @@ public class Main {
             player1.draw(1);
             player2.draw(1);
 
-//            if(player1.onHand[-1] == player2.onHand[-1]){
-//                War.getInstance().warDraw();
-//            }
+            if(player1.onHand[-1] == player2.onHand[-1]){
+
+                player1.draw(3);
+                player2.draw(3);
+
 
             player1.showCards();
             player2.showCards();
 
-            game.resultOfRound();
+            player1.calculateValueOfCards();
+            player2.calculateValueOfCards();
+
+            if(player1.valueOfCards > player2){
+                // do this
+                else
+                    // do that
+            }
+
+
+
 
 
 

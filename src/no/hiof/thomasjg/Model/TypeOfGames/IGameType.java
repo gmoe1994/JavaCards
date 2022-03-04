@@ -4,6 +4,8 @@ public interface IGameType {
 
     void result();
 
+    void gameLoop();
+
 
 
 
