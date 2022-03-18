@@ -57,4 +57,43 @@ public class Card {
 
     }
 
+    public void illustrateASCIICards(){
+        Suit suit = this.suit;
+        Value value = this.value;
+        String ascii;
+        String valueString;
+        switch (suit){
+            case CLUBS -> ascii = "♣";
+            case HEARTS -> ascii = "♥";
+            case SPADES -> ascii = "♠";
+            case DIAMONDS -> ascii = "♦";
+            default -> throw new IllegalStateException("Unexpected value: " + suit);
+        }
+        switch (value){
+            case TWO -> valueString = "2";
+            case THREE -> valueString = "3";
+            case FOUR -> valueString = "4";
+            case FIVE -> valueString = "5";
+            case SIX -> valueString = "6";
+            case SEVEN -> valueString = "7";
+            case EIGHT -> valueString = "8";
+            case NINE -> valueString = "9";
+            case TEN -> valueString = "10";
+            case JACK -> valueString = "Jack";
+            case QUEEN -> valueString = "Queen";
+            case KING -> valueString = "King";
+            case ACE -> valueString = "Ace";
+            default -> throw new IllegalStateException("Unexpected value: " + value);
+        }
+        System.out.printf(" %s%s ", ascii, valueString);
+
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "value=" + value +
+                ", suit=" + suit +
+                '}';
+    }
 }
