@@ -6,22 +6,22 @@ import static java.util.Map.entry;
 
 public class Card {
     // Put in IGameType implementation?
-    final public Map<Integer, Value> values = Map.ofEntries(
-    entry(2, Value.TWO),
-    entry(3, Value.THREE),
-    entry(4, Value.FOUR),
-    entry(5, Value.FIVE),
-    entry(6, Value.SIX),
-    entry(7,  Value.SEVEN),
-    entry(8, Value.EIGHT),
-    entry(9, Value.NINE),
-    entry(10, Value.TEN),
-    entry(11, Value.JACK),
-    entry(12, Value.QUEEN),
-    entry(13, Value.KING),
-    entry(14, Value.ACE));
-    private Value value;
-    private Suit suit;
+    final public Map<Value, Integer> values = Map.ofEntries(
+    entry(Value.TWO,2),
+    entry(Value.THREE,3),
+    entry(Value.FOUR,4),
+    entry(Value.FIVE,5),
+    entry(Value.SIX,6),
+    entry(Value.SEVEN,7),
+    entry(Value.EIGHT,8),
+    entry(Value.NINE,9),
+    entry(Value.TEN,10),
+    entry(Value.JACK,11),
+    entry(Value.QUEEN,12),
+    entry(Value.KING,13),
+    entry(Value.ACE,14));
+    private final Value value;
+    private final Suit suit;
 
     enum Suit{
         HEARTS,
