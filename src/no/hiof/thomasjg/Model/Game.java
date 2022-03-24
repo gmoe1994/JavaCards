@@ -10,6 +10,7 @@ public class Game {
     private ArrayList<Player> lastResult = new ArrayList<>();
     private Player winner;
     private static IGameType game; //singleton?
+    private Deck deck = new Deck();
 
     public Game(IGameType game){
         Game.game = game;
@@ -19,7 +20,7 @@ public class Game {
 
 
     public void addPlayer(String name){
-        // creates a player and adds it to the game
+        players.add(new Player(name));
     }
 
 

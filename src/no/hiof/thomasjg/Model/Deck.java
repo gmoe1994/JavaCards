@@ -17,18 +17,19 @@ public class Deck {
             for (Card.Value value: Card.Value.values())
                 deck.add(new Card(suit, value));
         }
-        for(Card card: deck){
-            card.illustrateASCIICards();
-        }
     }
 
     // Fisher-yates shuffle algorithm
     public void shuffleDeck(){
         Random r = new Random();
         for (int i = deck.size()-1; i > 0; i--) {
-            int j = r.nextInt(i+1);
+            int j = r.nextInt(51);
             Collections.swap(deck, i, j);
         }
+    }
+
+    public Card draw(){
+        return deck.remove(0);
     }
 
 
