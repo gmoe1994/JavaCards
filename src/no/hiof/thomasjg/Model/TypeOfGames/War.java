@@ -1,5 +1,7 @@
 package no.hiof.thomasjg.Model.TypeOfGames;
 
+import no.hiof.thomasjg.Model.IGameType;
+
 public class War implements IGameType {
 
     private static War warInstance = null;
@@ -9,7 +11,7 @@ public class War implements IGameType {
 
     @Override
     public void result() {
-        // logic to determine the winner of the round based on the players cards
+
     }
 
     @Override

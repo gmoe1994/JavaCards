@@ -5,7 +5,6 @@ import java.util.Map;
 import static java.util.Map.entry;
 
 public class Card {
-    // Put in IGameType implementation?
     final public Map<Value, Integer> values = Map.ofEntries(
     entry(Value.TWO,2),
     entry(Value.THREE,3),
@@ -89,8 +88,10 @@ public class Card {
 
     }
 
-    public Value getValue() {
-        return value;
+
+
+    public int getValue() {
+        return values.get(value);
     }
 
     public Suit getSuit() {

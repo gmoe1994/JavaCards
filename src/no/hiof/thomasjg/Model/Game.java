@@ -1,34 +1,36 @@
 package no.hiof.thomasjg.Model;
 
-import no.hiof.thomasjg.Model.TypeOfGames.IGameType;
-
 import java.util.ArrayList;
 
 // Make class to represent builder design?
 public class Game {
-    private ArrayList<Player> players = new ArrayList<>();
-    private ArrayList<Player> lastResult = new ArrayList<>();
-    private Player winner;
-    private static IGameType game; //singleton?
-    private Deck deck = new Deck();
+    protected ArrayList<Player> players = new ArrayList<>();
+    protected Player winner = null;
+    // private static IGameType game; //singleton?
+    protected Deck deck = new Deck();
 
-    public Game(IGameType game){
-        Game.game = game;
+    public Game(){
     }
-    // has to be singleton, else constructor cannot recognise which class to call?
-
 
 
     public void addPlayer(String name){
         players.add(new Player(name));
     }
 
+    public Player getPlayer(String name) {
+        for(Player player: players){
+            if (player.getName().equals(name)){
+                return player;
+            }
+        }
+        return null;
+    }
 
-    public static void resultOfRound(){
+
+    public void resultOfRound(){
         // iterates the players of the games, for each player the cards on hand are checked.
         // depending on the game the result of round is returned
         // Bridge pattern?
-        game.result();
 
     }
 

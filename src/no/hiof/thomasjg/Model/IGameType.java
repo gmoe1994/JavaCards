@@ -1,4 +1,4 @@
-package no.hiof.thomasjg.Model.TypeOfGames;
+package no.hiof.thomasjg.Model;
 
 public interface IGameType {
 

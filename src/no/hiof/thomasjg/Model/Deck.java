@@ -28,6 +28,10 @@ public class Deck {
         }
     }
 
+    public boolean isEmpty(){
+        return deck.size() == 0;
+    }
+
     public Card draw(){
         return deck.remove(0);
     }
