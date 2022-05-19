@@ -15,8 +15,12 @@ public class Main {
 //        player1.draw(deck, 2);
 //        player1.showCards();
 //        System.out.println(player1.calculateValueOfCards());
-        WarConsole war = new WarConsole();
-        war.start();
+//        WarConsole war = new WarConsole();
+//        war.start();
 
+        System.out.println(123/50);
+        System.out.println(123 % 50);
+        System.out.println(23/25);
+        System.out.println(23 % 25);
     }
 }
