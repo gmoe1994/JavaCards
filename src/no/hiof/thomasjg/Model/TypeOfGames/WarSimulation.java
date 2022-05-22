@@ -78,7 +78,7 @@ public class WarSimulation extends Game {
         }
         ArrayList<Card> cardsToWinFromWar = new ArrayList<>();
         cardsToWinFromWar.addAll(this.getPlayer("Elon").drawFromHand(3));
-        cardsToWinFromWar.addAll(this.getPlayer("Elon").drawFromHand(3));
+        cardsToWinFromWar.addAll(this.getPlayer("Thomas").drawFromHand(3));
 
         Card thomas = this.getPlayer("Thomas").drawFromHand();
         Card elon = this.getPlayer("Elon").drawFromHand();
