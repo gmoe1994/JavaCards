@@ -1,5 +1,7 @@
 package no.hiof.thomasjg.Model.Betting;
 
+import no.hiof.thomasjg.Model.Card;
+
 import java.util.Map;
 
 import static java.util.Map.entry;
@@ -20,6 +22,22 @@ public class Chips {
         TWENTY_FIVE,
         FIFTY
     }
+
+
+    public String illustrateChips(){
+        Value value = this.value;
+        String chipLogo;
+        switch (value){
+            case ONE -> chipLogo = "INSERT PICTURE PATH, PICTURE FILENAME";
+            case FIVE -> chipLogo = "INSERT PICTURE PATH, PICTURE FILENAME";
+            case TEN -> chipLogo = "INSERT PICTURE PATH, PICTURE FILENAME";
+            case TWENTY_FIVE -> chipLogo = "INSERT PICTURE PATH, PICTURE FILENAME";
+            case FIFTY -> chipLogo = "INSERT PICTURE PATH, PICTURE FILENAME";
+            default -> throw new IllegalStateException("Unexpected value: " + value);
+        }
+        return chipLogo;
+    }
+
 
     public Chips(Value value) {
         this.value = value;

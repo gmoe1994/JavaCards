@@ -6,10 +6,8 @@ import no.hiof.thomasjg.Model.Player;
 
 import java.util.ArrayList;
 
-public class WarConsole extends Game {
-    private ArrayList<Card> thomas = new ArrayList<>();
-    private ArrayList<Card> elon = new ArrayList<>();
-    public WarConsole(){
+public class WarSimulation extends Game {
+    public WarSimulation(){
         super();
     }
 
@@ -20,37 +18,29 @@ public class WarConsole extends Game {
         deck.shuffleDeck();
         addPlayer("Thomas");
         addPlayer("Elon");
-        while(!deck.isEmpty()) {
-            for (Player player : players) {
-                player.draw(deck, 1);
-            }
-        }
+        dealAllCards();
 
 
         while(winner == null){
 
 
-            thomas.add(this.getPlayer("Thomas").drawFromHand());
-            elon.add(this.getPlayer("Elon").drawFromHand());
+            Card thomas = this.getPlayer("Thomas").drawFromHand();
+            Card elon = this.getPlayer("Elon").drawFromHand();
 
             System.out.println("Thomas draws: ");
-            thomas.get(0).illustrateASCIICards();
+            thomas.illustrateASCIICards();
             System.out.println("\nElon draws: ");
-            elon.get(0).illustrateASCIICards();
+            elon.illustrateASCIICards();
 
-            if (Player.calculateValueOfCards(thomas) > Player.calculateValueOfCards(elon)){
-                thomas.add(elon.get(0));
-                this.getPlayer("Thomas").addCardsToHand(thomas);
-                thomas.clear();
-                elon.clear();
+            if (thomas.getValue() > elon.getValue()){
+                this.getPlayer("Thomas").addCardToHand(thomas);
+                this.getPlayer("Thomas").addCardToHand(elon);
                 System.out.println("\nThomas has highest card\n");
             }
 
-            else if (Player.calculateValueOfCards(thomas) < Player.calculateValueOfCards(elon)){
-                elon.add(thomas.get(0));
-                this.getPlayer("Elon").addCardsToHand(elon);
-                elon.clear();
-                thomas.clear();
+            else if (thomas.getValue() < elon.getValue()){
+                this.getPlayer("Elon").addCardToHand(elon);
+                this.getPlayer("Elon").addCardToHand(thomas);
                 System.out.println("\nElon has highest card\n");
             }
 
@@ -79,38 +69,35 @@ public class WarConsole extends Game {
             if(this.getPlayer("Thomas").cardsOnHand() > this.getPlayer("Elon").cardsOnHand()){
                 System.out.println("Elon does not have enough cards to go to war\nThomas is the winner");
                 winner = this.getPlayer("Thomas");
-                return;
             }
             else{
                 System.out.println("Thomas does not have enough cards to go to war\nElon is the winner");
                 winner = this.getPlayer("Elon");
-                return;
             }
+            return;
         }
-        thomas.addAll(this.getPlayer("Thomas").drawFromHand(4));
-        elon.addAll(this.getPlayer("Elon").drawFromHand(4));
+        ArrayList<Card> cardsToWinFromWar = new ArrayList<>();
+        cardsToWinFromWar.addAll(this.getPlayer("Elon").drawFromHand(3));
+        cardsToWinFromWar.addAll(this.getPlayer("Elon").drawFromHand(3));
 
-        System.out.println("\nThomas draws: ");
-        thomas.get(thomas.size() -1).illustrateASCIICards();
+        Card thomas = this.getPlayer("Thomas").drawFromHand();
+        Card elon = this.getPlayer("Elon").drawFromHand();
+
+        System.out.println("Thomas draws: ");
+        thomas.illustrateASCIICards();
         System.out.println("\nElon draws: ");
-        elon.get(elon.size() -1).illustrateASCIICards();
-        if (thomas.get(thomas.size() -1).getValue() > elon.get(elon.size() -1).getValue()){
-            for(Card card: elon){
-                thomas.add(card);
-            }
-            elon.clear();
-            this.getPlayer("Thomas").addCardsToHand(thomas);
-            thomas.clear();
+        elon.illustrateASCIICards();
+        if (thomas.getValue() > elon.getValue()){
+            this.getPlayer("Thomas").addCardsToHand(cardsToWinFromWar);
+            this.getPlayer("Thomas").addCardToHand(elon);
+            this.getPlayer("Thomas").addCardToHand(thomas);
             System.out.println("\nThomas wins the war\n");
         }
 
-        else if (thomas.get(thomas.size() -1).getValue() < elon.get(elon.size() -1).getValue()){
-            for(Card card: thomas){
-                elon.add(card);
-            }
-            thomas.clear();
-            this.getPlayer("Elon").addCardsToHand(elon);
-            elon.clear();
+        else if (thomas.getValue() < elon.getValue()){
+            this.getPlayer("Elon").addCardsToHand(cardsToWinFromWar);
+            this.getPlayer("Elon").addCardToHand(elon);
+            this.getPlayer("Elon").addCardToHand(thomas);
             System.out.println("\nElon wins the war\n");
         }
         else {

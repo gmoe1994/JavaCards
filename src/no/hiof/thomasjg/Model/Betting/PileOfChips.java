@@ -13,6 +13,10 @@ public class PileOfChips {
         addFiftyChips(10);
     }
 
+    public PileOfChips(int amount){
+        addChips(amount);
+    }
+
     public void addOneChips(int amount){
         for (int i = 0; i < amount; i++) {
             pile.add(new Chips(Chips.Value.ONE));

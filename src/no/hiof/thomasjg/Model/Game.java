@@ -5,9 +5,8 @@ import java.util.ArrayList;
 // Make class to represent builder design?
 public class Game {
     protected ArrayList<Player> players = new ArrayList<>();
-    protected Player winner = null;
-    // private static IGameType game; //singleton?
     protected Deck deck = new Deck();
+    protected Player winner = null;
 
     public Game(){
     }
@@ -26,6 +25,12 @@ public class Game {
         return null;
     }
 
+    public void dealAllCards(){
+        while(!deck.isEmpty()) {
+            for (Player player : players)
+                player.draw(deck, 1);
+        }
+    }
 
     public void resultOfRound(){
         // iterates the players of the games, for each player the cards on hand are checked.
