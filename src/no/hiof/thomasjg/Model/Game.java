@@ -1,11 +1,14 @@
 package no.hiof.thomasjg.Model;
 
+import no.hiof.thomasjg.Model.Betting.PileOfChips;
+
 import java.util.ArrayList;
 
-// Make class to represent builder design?
+
 public class Game {
     protected ArrayList<Player> players = new ArrayList<>();
     protected Deck deck = new Deck();
+    protected PileOfChips table = new PileOfChips(false);
     protected Player winner = null;
 
     public Game(){
@@ -14,6 +17,10 @@ public class Game {
 
     public void addPlayer(String name){
         players.add(new Player(name));
+    }
+
+    public void addPlayer(Player player){
+        players.add(player);
     }
 
     public Player getPlayer(String name) {
@@ -30,6 +37,14 @@ public class Game {
             for (Player player : players)
                 player.draw(deck, 1);
         }
+    }
+
+    public void takeBet(Player player, int amount){
+        table.addChips(player.betChips(amount));
+    }
+
+    public void clearTable(){
+        table.cleanTable();
     }
 
     public void resultOfRound(){

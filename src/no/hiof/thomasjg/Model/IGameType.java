@@ -6,7 +6,4 @@ public interface IGameType {
 
     void gameLoop();
 
-
-
-
 }

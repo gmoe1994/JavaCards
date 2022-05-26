@@ -52,8 +52,36 @@ public class Card {
         this.value = value;
     }
 
-    public void illustrateCards(){
-
+    public String illustrateCards(){
+        Suit suit = this.suit;
+        Value value = this.value;
+        String suiteString;
+        String valueString;
+        switch (suit){
+            case CLUBS -> suiteString = "club";
+            case HEARTS -> suiteString = "heart";
+            case SPADES -> suiteString = "spade";
+            case DIAMONDS -> suiteString = "diamond";
+            default -> throw new IllegalStateException("Unexpected value: " + suit);
+        }
+        switch (value){
+            case TWO -> valueString = "2";
+            case THREE -> valueString = "3";
+            case FOUR -> valueString = "4";
+            case FIVE -> valueString = "5";
+            case SIX -> valueString = "6";
+            case SEVEN -> valueString = "7";
+            case EIGHT -> valueString = "8";
+            case NINE -> valueString = "9";
+            case TEN -> valueString = "10";
+            case JACK -> valueString = "Jack";
+            case QUEEN -> valueString = "Queen";
+            case KING -> valueString = "King";
+            case ACE -> valueString = "Ace";
+            default -> throw new IllegalStateException("Unexpected value: " + value);
+        }
+        String pictureName = suiteString + valueString;
+        return pictureName;
     }
 
     public void illustrateASCIICards(){

@@ -20,10 +20,7 @@ public class WarSimulation extends Game {
         addPlayer("Elon");
         dealAllCards();
 
-
         while(winner == null){
-
-
             Card thomas = this.getPlayer("Thomas").drawFromHand();
             Card elon = this.getPlayer("Elon").drawFromHand();
 

@@ -1,14 +1,23 @@
 package no.hiof.thomasjg.Model;
 
+import no.hiof.thomasjg.Model.Betting.Chips;
+import no.hiof.thomasjg.Model.Betting.PileOfChips;
+
 import java.util.ArrayList;
 
 public class Player {
     private String name;
     private int valueOfCards = 0;
     private ArrayList<Card> onHand = new ArrayList<>();
+    private PileOfChips chips;
 
     public Player(String name){
         this.name = name;
+    }
+
+    public Player(String name, int amountOfChips){
+        this.name = name;
+        this.chips = new PileOfChips(amountOfChips);
     }
 
     public void draw(Deck deck, int amount){
@@ -54,6 +63,18 @@ public class Player {
 
     public void addCardToHand(Card card){
         onHand.add(card);
+    }
+
+    public void addChips(int amount){
+        chips.addChips(amount);
+    }
+
+    public void addChips(PileOfChips pot){
+        this.chips.addChips(pot.returnChips());
+    }
+
+    public ArrayList<Chips> betChips(int amount){
+        return chips.placeBet(amount);
     }
 
     public int calculateValueOfCards(){

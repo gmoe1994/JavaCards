@@ -8,7 +8,6 @@ public class War implements IGameType {
 
     private War(){}
 
-
     @Override
     public void result() {
 
@@ -25,6 +24,5 @@ public class War implements IGameType {
         }
         return warInstance;
     }
-
 
 }
