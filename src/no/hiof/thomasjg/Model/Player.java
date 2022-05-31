@@ -9,7 +9,8 @@ public class Player {
     private String name;
     private int valueOfCards = 0;
     private ArrayList<Card> onHand = new ArrayList<>();
-    private PileOfChips chips;
+    private PileOfChips chips = new PileOfChips(true);
+    private int bet = 0;
 
     public Player(String name){
         this.name = name;
@@ -74,10 +75,12 @@ public class Player {
     }
 
     public ArrayList<Chips> betChips(int amount){
+        bet = amount;
         return chips.placeBet(amount);
     }
 
     public int calculateValueOfCards(){
+        valueOfCards = 0;
         for (Card card: onHand){
             int value = card.getValue();
             valueOfCards += value;
@@ -86,18 +89,11 @@ public class Player {
     }
 
 
-    public static int calculateValueOfCards(ArrayList<Card> cards){
-        int temp = 0;
-        for (Card card: cards){
-            int value = card.getValue();
-            temp += value;
-        }
-        return temp;
-    }
-
     public String getName() {
         return name;
     }
 
-
+    public int getBet() {
+        return bet;
+    }
 }

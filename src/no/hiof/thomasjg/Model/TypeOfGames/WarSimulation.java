@@ -2,7 +2,6 @@ package no.hiof.thomasjg.Model.TypeOfGames;
 
 import no.hiof.thomasjg.Model.Card;
 import no.hiof.thomasjg.Model.Game;
-import no.hiof.thomasjg.Model.Player;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class WarSimulation extends Game {
         deck.shuffleDeck();
         addPlayer("Thomas");
         addPlayer("Elon");
-        dealAllCards();
+        dealAllCardsToPlayers();
 
         while(winner == null){
             Card thomas = this.getPlayer("Thomas").drawFromHand();

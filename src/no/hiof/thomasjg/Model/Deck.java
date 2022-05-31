@@ -6,13 +6,13 @@ import java.util.Random;
 
 // instantiate as singleton?
 public class Deck {
-    private ArrayList<Card> deck = new ArrayList<>();
+    protected ArrayList<Card> deck = new ArrayList<>();
 
     public Deck(){
         createDeck();
     }
 
-    private void createDeck(){
+    protected void createDeck(){
         for (Card.Suit suit: Card.Suit.values()){
             for (Card.Value value: Card.Value.values())
                 deck.add(new Card(suit, value));

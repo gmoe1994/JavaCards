@@ -32,26 +32,32 @@ public class Game {
         return null;
     }
 
-    public void dealAllCards(){
+    public void dealAllCardsToPlayers(){
         while(!deck.isEmpty()) {
             for (Player player : players)
                 player.draw(deck, 1);
         }
     }
 
+    public static int calculateValueOfCards(ArrayList<Card> cards){
+        int temp = 0;
+        for (Card card: cards){
+            int value = card.getValue();
+            temp += value;
+        }
+        return temp;
+    }
+
     public void takeBet(Player player, int amount){
         table.addChips(player.betChips(amount));
     }
 
-    public void clearTable(){
-        table.cleanTable();
+    public void givePotToPlayer(Player player){
+        player.addChips(player.getBet());
     }
 
-    public void resultOfRound(){
-        // iterates the players of the games, for each player the cards on hand are checked.
-        // depending on the game the result of round is returned
-        // Bridge pattern?
-
+    public void clearTable(){
+        table.cleanTable();
     }
 
 

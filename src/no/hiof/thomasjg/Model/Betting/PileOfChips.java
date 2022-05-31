@@ -19,6 +19,14 @@ public class PileOfChips {
         addChips(amount);
     }
 
+    public int calculateValueOfChips(ArrayList<Chips> pileToCount){
+        int value = 0;
+        for (Chips chip: pileToCount){
+            value += chip.getValue();
+        }
+        return value;
+    }
+
     public void addOneChips(int amount){
         for (int i = 0; i < amount; i++) {
             pile.add(new Chips(1));
@@ -49,6 +57,10 @@ public class PileOfChips {
         }
     }
 
+    /**
+     * Adds chips to the collection of chips (pile).
+     * @param amount
+     */
     public void addChips(int amount){
         int temp;
         addFiftyChips(amount/50);
@@ -78,6 +90,7 @@ public class PileOfChips {
         return toReturn;
     }
 
+    
     public void betOneChips(int amount, ArrayList<Chips> listToAddChips){
         for (int i = 0; i < amount; i++) {
             for (Chips chip : pile){
@@ -138,6 +151,13 @@ public class PileOfChips {
         }
     }
 
+
+
+    /**
+     * Takes chips out of the pile, starts with adding the highest chip value then tries the rest in descending order of chip values
+     * @param amount
+     * @return Arraylist with the chips taken out of the pile
+     */
     public ArrayList<Chips> placeBet(int amount){
         ArrayList<Chips> chips = new ArrayList<>();
         int temp;
@@ -150,7 +170,12 @@ public class PileOfChips {
         betFiveChips(temp/5, chips);
         temp = temp % 5;
         betOneChips(temp, chips);
+        if (calculateValueOfChips(chips) != amount){
+            System.out.println("User does not have enough chips to place this bet");
+            return new ArrayList<>();
+        }
         return chips;
+
     }
 
 }

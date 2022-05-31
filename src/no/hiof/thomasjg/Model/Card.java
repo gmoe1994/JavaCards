@@ -5,7 +5,7 @@ import java.util.Map;
 import static java.util.Map.entry;
 
 public class Card {
-    final public Map<Value, Integer> values = Map.ofEntries(
+    public Map<Value, Integer> values = Map.ofEntries(
     entry(Value.TWO,2),
     entry(Value.THREE,3),
     entry(Value.FOUR,4),
@@ -22,14 +22,14 @@ public class Card {
     private final Value value;
     private final Suit suit;
 
-    enum Suit{
+    public enum Suit{
         HEARTS,
         SPADES,
         CLUBS,
         DIAMONDS
     }
 
-    enum Value{
+    public enum Value{
         TWO,
         THREE,
         FOUR,
@@ -112,7 +112,7 @@ public class Card {
             case ACE -> valueString = "Ace";
             default -> throw new IllegalStateException("Unexpected value: " + value);
         }
-        System.out.printf(" %s%s ", ascii, valueString);
+        System.out.printf(" %s%s \n", ascii, valueString);
 
     }
 
