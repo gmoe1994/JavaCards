@@ -52,7 +52,11 @@ public class Card {
         this.value = value;
     }
 
-    public String illustrateCards(){
+    /**
+     * Get which picture to show card graphically
+     * @return String of the picture to illustrate the card
+     */
+    public String illustrateCard(){
         Suit suit = this.suit;
         Value value = this.value;
         String suiteString;
@@ -84,6 +88,9 @@ public class Card {
         return pictureName;
     }
 
+    /**
+     * Illustrate cards in the console
+     */
     public void illustrateASCIICards(){
         Suit suit = this.suit;
         Value value = this.value;
@@ -117,11 +124,18 @@ public class Card {
     }
 
 
-
+    /**
+     * Get the value of the card
+     * @return value of card
+     */
     public int getValue() {
         return values.get(value);
     }
 
+    /**
+     * Get which suit the card is
+     * @return suit
+     */
     public Suit getSuit() {
         return suit;
     }

@@ -12,6 +12,9 @@ public class Deck {
         createDeck();
     }
 
+    /**
+     * Adds one of each card to the deck, creating the deck.
+     */
     protected void createDeck(){
         for (Card.Suit suit: Card.Suit.values()){
             for (Card.Value value: Card.Value.values())
@@ -19,7 +22,9 @@ public class Deck {
         }
     }
 
-    // Fisher-yates shuffle algorithm
+    /**
+     * Shuffles the deck using Fisher-yates shuffle algorithm
+     */
     public void shuffleDeck(){
         Random r = new Random();
         for (int i = deck.size()-1; i > 0; i--) {
@@ -28,10 +33,18 @@ public class Deck {
         }
     }
 
+    /**
+     * Checks if the deck is empty
+     * @return
+     */
     public boolean isEmpty(){
         return deck.size() == 0;
     }
 
+    /**
+     * Draws one card from the deck
+     * @return one Card
+     */
     public Card draw(){
         return deck.remove(0);
     }

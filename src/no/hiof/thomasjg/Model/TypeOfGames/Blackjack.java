@@ -3,6 +3,7 @@ package no.hiof.thomasjg.Model.TypeOfGames;
 import no.hiof.thomasjg.Model.Betting.BlackjackDeck;
 import no.hiof.thomasjg.Model.Betting.Dealer;
 import no.hiof.thomasjg.Model.Game;
+import no.hiof.thomasjg.Model.Player;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -17,6 +18,10 @@ public class Blackjack extends Game {
         this.deck = new BlackjackDeck();
     }
 
+    @Override
+    public void givePotToPlayer(Player player) {
+        player.addChips(player.getBet() * 2);
+    }
 
     @Override
     public void start() {

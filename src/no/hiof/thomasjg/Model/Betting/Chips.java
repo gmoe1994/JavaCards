@@ -9,11 +9,18 @@ import static java.util.Map.entry;
 public class Chips {
     private final int value;
 
+    /**
+     * Constructor for chips
+     * @param value value of the chip to create
+     */
     public Chips(int value){
         this.value = value;
     }
 
-
+    /**
+     * Return a string of the picture to represent the chip
+     * @return string of picture
+     */
     public String illustrateChips(){
         int value = this.value;
         String chipLogo;
@@ -28,6 +35,10 @@ public class Chips {
         return chipLogo;
     }
 
+    /**
+     * Get the value of the chip
+     * @return value of chip
+     */
     public int getValue() {
         return value;
     }

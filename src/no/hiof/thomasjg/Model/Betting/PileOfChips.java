@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class PileOfChips {
     private ArrayList<Chips> pile = new ArrayList<>();
 
+    /**
+     * Constructor which either gives you a start amount with 1000 chips or no chips at all
+     * @param startChips ture if chips wanted, false if not
+     */
     public PileOfChips(boolean startChips) {
         if (startChips) {
             addOneChips(50);
@@ -15,10 +19,19 @@ public class PileOfChips {
         }
     }
 
-    public PileOfChips(int amount){
-        addChips(amount);
+    /**
+     * Constructor which adds the desired value of chips
+     * @param value value of the chips in total
+     */
+    public PileOfChips(int value){
+        addChips(value);
     }
 
+    /**
+     * Calculates the total value of the chips in the pile
+     * @param pileToCount pile to count the total value
+     * @return value of pile
+     */
     public int calculateValueOfChips(ArrayList<Chips> pileToCount){
         int value = 0;
         for (Chips chip: pileToCount){
@@ -27,6 +40,22 @@ public class PileOfChips {
         return value;
     }
 
+    /**
+     * Calculates the total value of the chips in the pile
+     * @return value of the chips
+     */
+    public int calculateValueOfChips(){
+        int value = 0;
+        for (Chips chip: pile){
+            value += chip.getValue();
+        }
+        return value;
+    }
+
+    /**
+     * Adds ONE chips to your pile
+     * @param amount amount of ONE chips to add
+     */
     public void addOneChips(int amount){
         for (int i = 0; i < amount; i++) {
             pile.add(new Chips(1));
@@ -59,7 +88,7 @@ public class PileOfChips {
 
     /**
      * Adds chips to the collection of chips (pile).
-     * @param amount
+     * @param amount value of the chips in total
      */
     public void addChips(int amount){
         int temp;
@@ -74,15 +103,25 @@ public class PileOfChips {
         addOneChips(temp);
     }
 
-
+    /**
+     * Adds chips to the pile
+     * @param chips chips to add to the pile
+     */
     public void addChips(ArrayList<Chips> chips){
         pile.addAll(chips);
     }
 
+    /**
+     * deletes all chips from pile
+     */
     public void cleanTable(){
         pile.clear();
     }
 
+    /**
+     * A helper method which takes all the chips in the pile and returns them
+     * @return arraylist of all chips from the pile
+     */
     public ArrayList<Chips> returnChips(){
         ArrayList<Chips> toReturn = new ArrayList<>();
         toReturn.addAll(pile);
@@ -90,7 +129,12 @@ public class PileOfChips {
         return toReturn;
     }
 
-    
+    /**
+     * Removes ONE chips from you pile and adds it to an Arraylist
+     * This is thought of as a helper method to placeBet, but can also be used separately if needed
+     * @param amount amount of ONE chips to bet
+     * @param listToAddChips list the chips gets added to
+     */
     public void betOneChips(int amount, ArrayList<Chips> listToAddChips){
         for (int i = 0; i < amount; i++) {
             for (Chips chip : pile){
