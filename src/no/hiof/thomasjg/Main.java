@@ -20,7 +20,7 @@ public class Main {
 //        if (player1.calculateValueOfCards() > player2.calculateValueOfCards()){
 //            //do this
 //        }
-//
+
 //        deck.draw();
 //        player1.draw(deck, 2);
 //        player1.showCards();
