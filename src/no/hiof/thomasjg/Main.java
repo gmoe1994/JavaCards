@@ -31,10 +31,10 @@ public class Main {
 //        game.addPlayer("Player1");
 //        game.addPlayer("Player2");
 //        game.start();
-//        WarSimulation war = new WarSimulation();
-//        war.start();
-        Blackjack blackjack = new Blackjack();
-        blackjack.start();
+        WarSimulation war = new WarSimulation();
+        war.start();
+//        Blackjack blackjack = new Blackjack();
+//        blackjack.start();
 
     }
 }

@@ -62,7 +62,7 @@ public class Game {
      * @param cards cards to estimate value
      * @return value of cards
      */
-    public static int calculateValueOfCards(ArrayList<Card> cards){
+    public int calculateValueOfCards(ArrayList<Card> cards){
         int temp = 0;
         for (Card card: cards){
             int value = card.getValue();

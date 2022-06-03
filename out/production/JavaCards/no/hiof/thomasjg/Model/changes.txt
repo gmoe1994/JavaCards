@@ -1,6 +1,0 @@
-IGameType is not as useful as first thought of. It does nopt have access to Game variables.
-Better to inherit from game class and code game logic directly in the new class inheriting game class.
-
-Need to be able to change card values depending on the game.
-
-big difference in which fields/properties are needed for each different game.

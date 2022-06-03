@@ -13,11 +13,12 @@ example:
         
         + here you create the properties needed for your specific game
         
-        public YourGame(params for your game if extra is needed){
+        public YourGame(params for your game, if extra is needed){
             super()
             this.yourProperty = param
         }
-
+        
+        @override
         start(){
             Here you implement the game loop, and logic
         }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-// instantiate as singleton?
+
 public class Deck {
     protected ArrayList<Card> deck = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class Deck {
 
     /**
      * Checks if the deck is empty
-     * @return
+     * @return true or false
      */
     public boolean isEmpty(){
         return deck.size() == 0;
