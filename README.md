@@ -1,3 +1,14 @@
+**********Getting started**********
+-
+
+Importing this framework to your project (for IntelliJ):
+
+- Create a new project
+- Select file -> project structure
+- Select libraries -> add new project library -> java
+- Then select the JavaCards.jar file
+
+For other IDE, I guess it would be pretty similar. The source files are also included (Eclipse has some issues when they are not included).
 
 
 **********Using the framework**********
